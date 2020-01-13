@@ -18,7 +18,8 @@ module.exports = app => {
     })
   })
   router.get('/categories', async (req, res) => {
-    const items = await Category.find().limit(10)
+    // 利用populate查出关联字段
+    const items = await Category.find().populate('parent').limit(10)
     res.send(items)
   })
   router.get('/categories/:id', async (req, res) => {
