@@ -25,6 +25,7 @@ module.exports = app => {
     })
   })
   // 资源列表
+  // GIT测试
   router.get('/', async (req, res, next) => {
     const token = String(req.headers.authorization || '').split(' ').pop()
     const { id } = jwt.verify(token, app.get('secret'))
